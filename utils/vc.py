@@ -47,9 +47,9 @@ class MusicPlayer(object):
             pl = f"{emoji.NO_ENTRY} empty playlist"
         else:
             if len(playlist) == 1:
-                pl = f"{emoji.REPEAT_SINGLE_BUTTON} **Playlist**:\n"
+                pl = f"{emoji.REPEAT_SINGLE_BUTTON} **daftar putar**:\n"
             else:
-                pl = f"{emoji.PLAY_BUTTON} **Playlist**:\n"
+                pl = f"{emoji.PLAY_BUTTON} **daftar putar**:\n"
             pl += "\n".join([
                 f"**{i}**. **[{x.audio.title}]({x.link})**"
                 for i, x in enumerate(playlist)
@@ -124,9 +124,9 @@ mp = MusicPlayer()
 async def network_status_changed_handler(gc: GroupCall, is_connected: bool):
     if is_connected:
         mp.chat_id = int("-100" + str(gc.full_chat.id))
-        await mp.send_text(f"{emoji.CHECK_MARK_BUTTON} joined the voice chat")
+        await mp.send_text(f"{emoji.CHECK_MARK_BUTTON} bergabung ke voice chat")
     else:
-        await mp.send_text(f"{emoji.CROSS_MARK_BUTTON} left the voice chat")
+        await mp.send_text(f"{emoji.CROSS_MARK_BUTTON} meninggalkan voice chat")
         mp.chat_id = None
 
 
